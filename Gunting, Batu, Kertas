@@ -1,0 +1,74 @@
+# Program gunting batu kertas
+
+import random
+import time
+import os
+from os import system
+
+def blank():
+    print("  ")
+
+game_gbk = ['GUNTING', 'BATU', 'KERTAS']
+computer = x = 0
+player = y = 0
+os.system('cls' if os.name == 'nt' else 'clear')
+print("SCORE : ")
+print("Computer : " + str(x))
+print("Player : " + str(y))
+blank()
+
+program = True
+while program:
+    pilihan_computer = random.choice(game_gbk)
+    blank()
+    player = input("GUNTING, BATU, KERTAS or QUIT : ")
+    if player.upper() == pilihan_computer:
+        print("Draw")
+    elif player.upper() == 'BATU':
+        if pilihan_computer == 'GUNTING':
+            print("Player menang!")
+            y +=1
+        else:
+            print("Computer menang!")
+            x +=1
+    elif player.upper() == 'KERTAS':
+        if pilihan_computer == 'BATU':
+            print("Player menang!")
+            y +=1
+        else:
+            print("Computer menang!")
+            x +=1
+    elif player.upper() == 'GUNTING':
+        if pilihan_computer == 'KERTAS':
+            print("Player menang!")
+            y +=1
+        else:
+            print("Computer menang!")
+            x +=1
+    elif player.upper() == 'QUIT':
+        blank()
+        print("Hasil akhir : ")
+        time.sleep(2)
+        print("Computer mendapatkan score : ",x)
+        print("Player mendapatkan score : ",y)
+        blank()
+        if x > y:
+            print("Maka pemenangnya adalah : Computer")
+            blank()
+        if x < y:
+            print("Maka pemenangnya adalah : Player")
+            blank()
+        else:
+            print("SERI !")
+            blank()
+        break
+    else:
+        print("Hanya boleh mengisi GUNTING, BATU, KERTAS or QUIT")
+        break
+    print("Player : " + player)
+    print("Computer : " + pilihan_computer)
+    blank()
+    print("SCORE : ")
+    print("Computer : " + str(x))
+    print("Player : " + str(y))
+    blank()
